@@ -8,6 +8,10 @@ export const content = [
     './node_modules/@shadcn/ui/**/*.{js,ts,jsx,tsx}',
 ];
 export const theme = {
-    extend: {},
+    extend: {
+        screens: {
+            xs: { max: '400px' },
+        },
+    },
 };
 export const plugins = [];
