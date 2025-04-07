@@ -13,6 +13,7 @@ import { FaGoogle } from "react-icons/fa";
 import { signIn } from "next-auth/react";
 import LoaderSpinner from "./LoaderSpinner";
 import { signInWithGoogle } from "@/lib/auth.google.js";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function AuthForm({ type }) {
   const [form, setForm] = useState({
@@ -22,6 +23,7 @@ export default function AuthForm({ type }) {
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const router = useRouter();
 
@@ -124,18 +126,29 @@ export default function AuthForm({ type }) {
               />
             </div>
 
-            <div>
-              <Label htmlFor="password" className="mb-2">
+            <div className="relative">
+              <Label htmlFor="password" className="mb-2 block">
                 Password
               </Label>
-              <Input
-                name="password"
-                id="password"
-                type="password"
-                value={form.password}
-                onChange={handleChange}
-                required
-              />
+              <div className="relative">
+                <Input
+                  name="password"
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  value={form.password}
+                  onChange={handleChange}
+                  required
+                  className="pr-12"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-white"
+                  tabIndex={-1}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
 
             {error && <p className="text-red-500 text-sm">{error}</p>}
