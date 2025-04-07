@@ -1,0 +1,5 @@
+@media (max-width: 400px) {
+    .responsive-margin {
+        margin-top: 3rem;
+    }
+}
