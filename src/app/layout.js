@@ -1,7 +1,7 @@
 import { Rubik } from "next/font/google";
 import "./globals.css";
 
-import Providers from "./Providers";
+import Providers from "./providers.jsx";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
 
