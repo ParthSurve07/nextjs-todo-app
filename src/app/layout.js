@@ -18,9 +18,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="icon" href="/todoflow.png" sizes="any" />
-      </head>
       <body className={`${rubik.className} bg-background text-foreground`}>
         <Providers>
           <Navbar />
